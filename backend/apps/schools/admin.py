@@ -5,7 +5,7 @@ from .models import School
 
 @admin.register(School)
 class SchoolAdmin(admin.ModelAdmin):
-    list_display = ('name', 'address', 'phone_number', 'email')
-    search_fields = ('name', 'address', 'phone_number', 'email')
+    list_display = ('name', 'address', 'phone', 'email', 'is_active')
+    search_fields = ('name', 'address', 'phone', 'email')
     list_editable = ('is_active',)
     prepopulated_fields = {'slug': ('name',)}
