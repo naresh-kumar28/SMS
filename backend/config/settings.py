@@ -124,3 +124,6 @@ PHONENUMBER_DEFAULT_REGION = "IN"
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
