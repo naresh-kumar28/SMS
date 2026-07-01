@@ -1,3 +1,10 @@
-from django.urls import path
+from django.urls import path, include
+from .import views
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = []
+router = DefaultRouter()
+router.register('academics', views.AcademicSessionViewSet, basename='academics')
+
+urlpatterns = [
+    path('', include(router.urls))
+]
