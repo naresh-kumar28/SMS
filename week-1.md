@@ -93,6 +93,7 @@ created_at
 * Create School
 * List Schools
 * Update School
+* Delete School
 
 ---
 
