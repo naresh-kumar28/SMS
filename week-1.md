@@ -99,7 +99,7 @@ created_at
 
 ## Rahul
 
-### Academic Session Model
+### Academic Session Model 
 
 ```python
 AcademicSession
