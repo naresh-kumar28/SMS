@@ -132,6 +132,8 @@ email
 phone
 role
 is_active
+date_joined
+last_login
 ```
 
 ### JWT Authentication
