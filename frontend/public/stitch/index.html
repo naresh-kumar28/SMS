@@ -1,0 +1,525 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Skoolnet | Manager Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0052FF",
+              surface: "#FFFFFF",
+              background: "#F8FAFC",
+              "outline-variant": "#E2E8F0",
+              "on-surface": "#0F172A",
+              "on-surface-variant": "#64748B",
+              amber: "#F59E0B",
+              blue: "#3B82F6",
+              rose: "#F43F5E",
+              emerald: "#10B981",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #ffffff;
+        color: #0f172a;
+        font-family: "Inter", sans-serif;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      .glass-sidebar {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border-right: 1px solid rgba(226, 232, 240, 0.8);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f8fafc;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body class="bg-surface custom-scrollbar overflow-x-hidden">
+    <!-- SideNavBar -->
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 glass-sidebar flex flex-col py-6 z-[60] font-['Inter'] text-sm font-medium"
+    >
+      <div class="px-6 mb-10 flex items-center gap-3">
+        <div
+          class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20"
+        >
+          <span class="material-symbols-outlined text-white">school</span>
+        </div>
+        <div>
+          <h1
+            class="font-['Manrope'] font-extrabold text-on-surface text-xl tracking-tight"
+          >
+            Skoolnet
+          </h1>
+          <p
+            class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold"
+          >
+            Manager Portal
+          </p>
+        </div>
+      </div>
+      <nav class="flex-1 px-4 space-y-1">
+        <!-- Dashboard Item (Active) -->
+        <a
+          class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/5 text-primary border border-primary/10 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          <span class="font-semibold">Dashboard</span>
+        </a>
+        <!-- Inactive Items -->
+        <a
+          class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-primary hover:bg-slate-50 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="school"
+            >school</span
+          >
+          <span>Schools</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-primary hover:bg-slate-50 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="group">group</span>
+          <span>Partners</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-primary hover:bg-slate-50 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="verified_user"
+            >verified_user</span
+          >
+          <span>Verifications</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-primary hover:bg-slate-50 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="notifications"
+            >notifications</span
+          >
+          <span>Alerts</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-primary hover:bg-slate-50 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="support"
+            >support</span
+          >
+          <span>Support</span>
+        </a>
+      </nav>
+      <div class="px-6 mt-auto">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 mb-6">
+          <p class="text-xs text-on-surface-variant mb-3 font-medium">
+            Enterprise Plan
+          </p>
+          <button
+            class="w-full py-2.5 bg-primary text-white rounded-xl text-xs font-bold transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
+          >
+            Upgrade Plan
+          </button>
+        </div>
+        <a
+          class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-red-500 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="logout"
+            >logout</span
+          >
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="ml-64 min-h-screen">
+      <!-- TopNavBar -->
+      <header
+        class="fixed top-0 right-0 left-64 h-16 z-50 bg-white/70 backdrop-blur-xl flex items-center justify-between px-8 border-b border-slate-100 font-['Manrope'] tracking-tight"
+      >
+        <div class="flex items-center flex-1 max-w-xl">
+          <div class="relative w-full">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm"
+              >search</span
+            >
+            <input
+              class="w-full bg-slate-100 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-slate-400"
+              placeholder="Search records, schools, or partners..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-4 text-on-surface-variant">
+            <button class="p-2 rounded-full transition-all hover:bg-slate-100">
+              <span class="material-symbols-outlined" data-icon="notifications"
+                >notifications</span
+              >
+            </button>
+            <button class="p-2 rounded-full transition-all hover:bg-slate-100">
+              <span class="material-symbols-outlined" data-icon="contrast"
+                >contrast</span
+              >
+            </button>
+            <button class="p-2 rounded-full transition-all hover:bg-slate-100">
+              <span class="material-symbols-outlined" data-icon="settings"
+                >settings</span
+              >
+            </button>
+          </div>
+          <div class="h-8 w-px bg-slate-200"></div>
+          <div class="flex items-center gap-3">
+            <div class="text-right hidden sm:block">
+              <p class="text-xs font-bold text-on-surface">Alexander Pierce</p>
+              <p class="text-[10px] text-on-surface-variant font-medium">
+                Platform Manager
+              </p>
+            </div>
+            <img
+              alt="User profile avatar"
+              class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRKIGUGFXKTmbmp0epeDC-YJvG3VlT6NFOzbEmey9ua5GE_7locUazze5tBIOXEYJcvrgCva-TZd5RvYxvaZeM0m5RvNsTiN69P-JveNwpySSiz5SIGxP5hbVDW2r3rrkl0g5zG8fy1oufDYI5OzLwbTp4QsowZTn7YfqAVpmUTAhaIWWpExxyxXdjlpf9obF301W3SToNPS7eX7gkccJ9uDeh9unR-ozQwvNr8uOxYJeBnEuMzhhAGHxi96dfdpgWM-9t-2WzxAk"
+            />
+          </div>
+        </div>
+      </header>
+      <!-- Dashboard Canvas -->
+      <div
+        class="pt-24 pb-12 px-8 max-w-[1600px] mx-auto space-y-8 bg-background/30"
+      >
+        <!-- Hero Header -->
+        <div class="flex justify-between items-end">
+          <div>
+            <p
+              class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2"
+            >
+              Daily command view
+            </p>
+            <h2
+              class="text-3xl font-['Manrope'] font-extrabold text-on-surface tracking-tight"
+            >
+              Platform overview
+            </h2>
+            <p class="text-on-surface-variant mt-1 font-medium">
+              Stay on top of the website, partner institutes, and the items that
+              need your attention before the day gets busy.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <button
+              class="px-5 py-2.5 bg-primary text-white rounded-xl text-xs font-bold hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-sm">download</span>
+              Download summary
+            </button>
+            <button
+              class="px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold text-on-surface hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm"
+            >
+              <span class="material-symbols-outlined text-sm text-primary"
+                >notifications</span
+              >
+              Review alerts
+            </button>
+          </div>
+        </div>
+        <!-- MetricGrid - 4 Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <!-- Schools onboarded -->
+          <div
+            class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+          >
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-3 rounded-2xl bg-primary/10 text-primary">
+                <span class="material-symbols-outlined">school</span>
+              </div>
+              <span
+                class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full"
+                >+6 this quarter</span
+              >
+            </div>
+            <p class="text-sm text-on-surface-variant font-medium">
+              Schools onboarded
+            </p>
+            <h3 class="text-3xl font-extrabold text-on-surface mt-1">84</h3>
+            <p class="text-xs text-slate-400 mt-2">Active school dashboards</p>
+          </div>
+          <!-- Coaching partners -->
+          <div
+            class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+          >
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-3 rounded-2xl bg-emerald-50 text-emerald-600">
+                <span class="material-symbols-outlined">rocket_launch</span>
+              </div>
+              <span
+                class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full"
+                >+3 this month</span
+              >
+            </div>
+            <p class="text-sm text-on-surface-variant font-medium">
+              Coaching partners
+            </p>
+            <h3 class="text-3xl font-extrabold text-on-surface mt-1">39</h3>
+            <p class="text-xs text-slate-400 mt-2">Running paid plans</p>
+          </div>
+          <!-- Pending verifications -->
+          <div
+            class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+          >
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-3 rounded-2xl bg-amber-50 text-amber-600">
+                <span class="material-symbols-outlined">how_to_reg</span>
+              </div>
+              <span
+                class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded-full"
+                >9 need review today</span
+              >
+            </div>
+            <p class="text-sm text-on-surface-variant font-medium">
+              Pending verifications
+            </p>
+            <h3 class="text-3xl font-extrabold text-on-surface mt-1">17</h3>
+            <p class="text-xs text-slate-400 mt-2">
+              Admissions and admin roles
+            </p>
+          </div>
+          <!-- Open alerts -->
+          <div
+            class="glass-card p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+          >
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-3 rounded-2xl bg-rose-50 text-rose-600">
+                <span class="material-symbols-outlined">notifications</span>
+              </div>
+              <span
+                class="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-1 rounded-full"
+                >-4 since yesterday</span
+              >
+            </div>
+            <p class="text-sm text-on-surface-variant font-medium">
+              Open alerts
+            </p>
+            <h3 class="text-3xl font-extrabold text-on-surface mt-1">11</h3>
+            <p class="text-xs text-slate-400 mt-2">Platform monitoring</p>
+          </div>
+        </div>
+        <!-- Main Insights Layout - Two Columns -->
+        <div class="grid grid-cols-1 xl:grid-cols-[1.35fr_1fr] gap-6">
+          <!-- Operational Focus -->
+          <div
+            class="glass-card p-8 rounded-3xl shadow-sm border border-slate-100"
+          >
+            <div class="mb-6">
+              <h4 class="text-lg font-bold text-on-surface">
+                Operational focus
+              </h4>
+              <p class="text-xs text-on-surface-variant font-medium">
+                The most important workstreams to review today
+              </p>
+            </div>
+            <div class="space-y-4">
+              <!-- School onboarding queue -->
+              <div class="rounded-2xl border border-slate-100 bg-white/70 p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <h4 class="font-semibold text-slate-900">
+                    School onboarding queue
+                  </h4>
+                  <span
+                    class="px-3 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700"
+                    >In progress</span
+                  >
+                </div>
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                  12 institutes submitted documents for final verification.
+                </p>
+              </div>
+              <!-- Website issue reports -->
+              <div class="rounded-2xl border border-slate-100 bg-white/70 p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <h4 class="font-semibold text-slate-900">
+                    Website issue reports
+                  </h4>
+                  <span
+                    class="px-3 py-1 rounded-full text-[10px] font-bold bg-blue-100 text-blue-700"
+                    >In progress</span
+                  >
+                </div>
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                  4 medium-priority complaints are waiting for engineering sync.
+                </p>
+              </div>
+              <!-- Payment reconciliation -->
+              <div class="rounded-2xl border border-slate-100 bg-white/70 p-4">
+                <div class="flex items-center justify-between gap-3">
+                  <h4 class="font-semibold text-slate-900">
+                    Payment reconciliation
+                  </h4>
+                  <span
+                    class="px-3 py-1 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700"
+                    >In progress</span
+                  >
+                </div>
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                  2 coaching subscriptions need manual review before renewal.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Website Pulse -->
+          <div
+            class="glass-card p-8 rounded-3xl shadow-sm border border-slate-100"
+          >
+            <div class="mb-6">
+              <h4 class="text-lg font-bold text-on-surface">Website pulse</h4>
+              <p class="text-xs text-on-surface-variant font-medium">
+                A quick health snapshot across the network
+              </p>
+            </div>
+            <div class="space-y-4">
+              <!-- New signups -->
+              <div class="rounded-2xl bg-slate-50 p-4">
+                <p class="text-sm text-slate-500">New signups</p>
+                <p class="mt-2 text-xl font-semibold text-slate-950">
+                  238 this week
+                </p>
+              </div>
+              <!-- Live dashboards -->
+              <div class="rounded-2xl bg-slate-50 p-4">
+                <p class="text-sm text-slate-500">Live dashboards</p>
+                <p class="mt-2 text-xl font-semibold text-slate-950">
+                  91 active accounts
+                </p>
+              </div>
+              <!-- Average response time -->
+              <div class="rounded-2xl bg-slate-50 p-4">
+                <p class="text-sm text-slate-500">Average response time</p>
+                <p class="mt-2 text-xl font-semibold text-slate-950">
+                  1.8 hrs support SLA
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer
+        class="w-full bg-white border-t border-slate-100 font-['Inter'] text-xs uppercase tracking-widest"
+      >
+        <div
+          class="max-w-7xl mx-auto px-8 py-10 flex flex-col md:flex-row justify-between items-center gap-8"
+        >
+          <div class="flex flex-col items-center md:items-start gap-4">
+            <span class="font-['Manrope'] text-lg font-bold text-on-surface"
+              >Skoolnet</span
+            >
+            <p
+              class="text-on-surface-variant normal-case tracking-normal font-medium"
+            >
+              © 2024 Skoolnet Inc. All rights reserved.
+            </p>
+          </div>
+          <div class="flex gap-8">
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors font-bold"
+              href="#"
+              >About</a
+            >
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors font-bold"
+              href="#"
+              >Careers</a
+            >
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors font-bold"
+              href="#"
+              >Privacy</a
+            >
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors font-bold"
+              href="#"
+              >Terms</a
+            >
+            <a
+              class="text-on-surface-variant hover:text-primary transition-colors font-bold"
+              href="#"
+              >Status</a
+            >
+          </div>
+          <div class="flex gap-4">
+            <div
+              class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+            >
+              <span class="material-symbols-outlined text-sm">language</span>
+            </div>
+            <div
+              class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+            >
+              <span class="material-symbols-outlined text-sm"
+                >support_agent</span
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- Floating Action Button -->
+    <button
+      class="fixed bottom-10 right-10 w-16 h-16 rounded-full bg-primary text-white shadow-2xl shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[100]"
+    >
+      <span class="material-symbols-outlined text-3xl">add</span>
+    </button>
+  </body>
+</html>
