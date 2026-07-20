@@ -14,4 +14,7 @@ urlpatterns = [
     #academics urls
     path('', include('apps.academics.urls')),
 
+    #accounts urls
+    path('account/', include('apps.accounts.urls')),
+
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
